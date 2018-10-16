@@ -1,0 +1,42 @@
+apply plugin: 'groovy'
+apply plugin: 'maven'
+
+dependencies {
+    compile gradleApi()
+    compile localGroovy()
+    compile 'com.android.tools.build:gradle:3.1.4'
+    compile 'commons-io:commons-io:2.4'
+    compile 'org.ow2.asm:asm:6.0'
+}
+repositories {
+    jcenter()
+    google()
+}
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.7.3'
+    }
+}
+
+group = 'd.router.plugin'
+version = '0.3'
+
+apply from: './drouterPlugin.gradle'
+
+//apply plugin: 'maven'
+//uploadArchives{
+//    repositories.mavenDeployer {
+//        // maven savePath
+//        def deployPath = file('/Users/wudi/Desktop/mavenR')
+//        println "啊哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈      ${deployPath.absolutePath}"
+//        repository(url:"file://${deployPath.absolutePath}")
+//        pom.project{
+//            groupId "com.codeless1"
+//            artifactId "codeless-gradle-plugin"
+//            version "0.0.1"
+//        }
+//    }
+//}

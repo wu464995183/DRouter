@@ -1,0 +1,1 @@
+include ':app', ':processor', ':drouter', ':test1', ':annotation', ':test2', 'plugin'

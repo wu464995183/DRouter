@@ -1,0 +1,34 @@
+import org.gradle.internal.jvm.Jvm
+
+apply plugin: 'java'
+apply plugin: 'maven'
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    compile 'com.google.auto.service:auto-service:1.0-rc2'
+    compile 'com.squareup:javapoet:1.9.0'
+    compile 'd.annocation:annotation:0.3'
+    compileOnly files(Jvm.current().getToolsJar())
+}
+
+sourceCompatibility = "1.7"
+targetCompatibility = "1.7"
+
+
+repositories {
+    jcenter()
+    google()
+}
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.7.3'
+    }
+}
+
+group = 'd.processor'
+version = '0.3'
+
+apply from: './dProcessor.gradle'
